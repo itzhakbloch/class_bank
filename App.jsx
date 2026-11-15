@@ -19,6 +19,17 @@ function App() {
     setAccounts(newAccounts);
   }
 
+  function deposit(index, amount) {
+    if (amount <= 0) {
+      alert("Deposit amount must be positive.");
+      return;
+    }
+    let newAccounts = accounts.slice();
+    newAccounts[index].balance += amount;
+    newAccounts[index].history.push("Deposited: " + amount);
+    setAccounts(newAccounts);
+  }
+
   function deleteAccount(index) {
     let newAccounts = accounts.slice();
     newAccounts.splice(index, 1);
